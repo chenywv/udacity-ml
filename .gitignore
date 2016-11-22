@@ -10,3 +10,4 @@ my_dataset.pkl
 my_feature_list.pkl
 .vscode/
 test.png
+k_means/clusters.pdf

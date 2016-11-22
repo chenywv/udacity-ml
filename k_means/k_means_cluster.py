@@ -50,7 +50,7 @@ feature_1 = "salary"
 feature_2 = "exercised_stock_options"
 poi  = "poi"
 features_list = [poi, feature_1, feature_2]
-data = featureFormat(data_dict, features_list )
+data = featureFormat(data_dict, features_list)
 poi, finance_features = targetFeatureSplit( data )
 
 
@@ -58,14 +58,19 @@ poi, finance_features = targetFeatureSplit( data )
 ### you'll want to change this line to 
 ### for f1, f2, _ in finance_features:
 ### (as it's currently written, the line below assumes 2 features)
-for f1, f2 in finance_features:
-    plt.scatter( f1, f2 )
-plt.show()
+# for f1, f2 in finance_features:
+#     plt.scatter( f1, f2 )
+# plt.show()
 
 ### cluster here; create predictions of the cluster labels
 ### for the data and store them to a list called pred
-
-
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import MinMaxScaler
+#cluster = KMeans(n_clusters=2).fit(data)
+#pred = cluster.predict(data)
+scaler = MinMaxScaler()
+scaler.fit_transform(finance_features)
+print scaler.transform(numpy.array([[200000., 1000000.]]))
 
 
 ### rename the "name" parameter when you change the number of features
